@@ -73,6 +73,107 @@ html {
 }
 /* End of NavBar */
 
+/* Cube */
+.cube-wrapper {
+  perspective: 100rem;
+}
+
+.cube {
+  width: 30rem;
+  height: 55rem;
+  transform-style: preserve-3d; /* pasa las props 3d a los hijos */
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd;
+}
+
+.front-side,
+.back-side {
+  width: 100%;
+  height: 100%;
+  background-color: #fee;
+  transform: translateZ(5rem);
+  position: absolute;
+  transform-style: preserve-3d;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd;
+}
+
+.front-side {
+  transform: translateZ(5rem);
+  padding: 2.5rem;
+}
+
+.front-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.front-side::before,
+.front-side::after {
+  content: "";
+  width: 100%;
+  height: 10rem;
+  background-color: #fee;
+  position: absolute;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd;
+}
+
+.front-side::before {
+  top: 0;
+  left: 0;
+  transform: rotateX(-90deg);
+  transform-origin: top;
+}
+
+.front-side::after {
+  bottom: 0;
+  left: 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+}
+
+.back-side {
+  transform: translateZ(-5rem);
+}
+
+.back-side i {
+  font-size: 12rem;
+  color: var(--primary-color);
+  text-shadow: 0.1rem 0.1rem 0.2rem #aaa, -0.1rem -0.1rem 0.2rem #aaa;
+  transform: rotateY(180deg);
+}
+
+.back-side::before,
+.back-side::after {
+  content: "iPhone";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ec1919;
+  height: 100%;
+  width: 10rem;
+  background-color: #fee;
+  position: absolute;
+  box-shadow: inset 0.1rem 0.1rem 0.1rem #ddd, inset -0.1rem -0.1rem 0.1rem #ddd;
+}
+
+.back-side::before {
+  top: 0;
+  left: 0;
+  transform: rotateY(-90deg);
+  transform-origin: left;
+}
+
+.back-side::after {
+  top: 0;
+  right: 0;
+  transform: rotateY(90deg);
+  transform-origin: right;
+}
+
+/* End of Cube */
+
 /* Banner */
 .section-1-banner {
   flex-direction: column;
